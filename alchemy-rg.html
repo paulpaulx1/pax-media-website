@@ -29,7 +29,7 @@
         <h1>Alchemy RG Portfolio Site</h1>
         <p>
           A custom artist portfolio with elegant content management for a
-          retired hedge fund manager turned visual artist.
+          retired finance professional turned visual artist.
         </p>
         <div class="tags">
           <span class="tag design">UX Design</span>
@@ -44,7 +44,7 @@
         <div class="overview-text">
           <h2>Project Overview</h2>
           <p>
-            Raj Gupta, a retired hedge fund manager pursuing an MFA at the
+            Raj Gupta, a retired finance professional pursuing an MFA at the
             School of Visual Arts, needed a portfolio site that would showcase
             his diverse body of work while being easy to update and maintain
             himself.
@@ -473,6 +473,83 @@
 
       .technical-grid {
         display: grid;
+      }
+      /* Technical Grid Styles */
+      .technical-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .technical-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .technical-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .technical-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(233, 180, 76, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .technical-icon i {
+        font-size: 1.5rem;
+        color: var(--yellow);
+      }
+
+      .technical-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+
+      .technical-card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .feature-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .feature-image {
+          order: -1;
+        }
+
+        .art-slideshow-container {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .art-slideshow-container {
+          height: 300px;
+        }
+
+        .technical-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .slideshow-image {
+          transition: none;
+        }
       }
     </style>
   </body>

@@ -50,7 +50,7 @@
             the quality of care they provide.
           </p>
           <p>
-            We met Dr. Mesnick at our local gym and recognized that his practice
+            We met Dr. Neal Mesnick at our local gym and recognized that his practice
             needed a digital presence that matched the excellence of his
             rehabilitation services.
           </p>
@@ -88,6 +88,38 @@
           </p>
         </div>
 
+        <!-- Desktop Homepage Transformation -->
+        <div class="comparison-container">
+          <h3>Desktop Experience</h3>
+          <div class="comparison-row">
+            <div class="comparison-item">
+              <div class="comparison-label">Before</div>
+              <div class="comparison-image">
+                <img
+                  src="./public/images/asr/before-homepage.png"
+                  alt="Original Website Desktop View"
+                />
+              </div>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-label">After</div>
+              <div class="comparison-image">
+                <img
+                  src="./public/images/asr/after-homepage.png"
+                  alt="New Website Desktop View"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="comparison-description">
+            <p>
+              The redesigned desktop experience features a clean, professional
+              aesthetic with intuitive navigation and clear service descriptions
+              that help patients quickly find the information they need.
+            </p>
+          </div>
+        </div>
+
         <!-- Logo Transformation -->
         <div class="comparison-container">
           <h3>Logo Redesign</h3>
@@ -96,7 +128,7 @@
               <div class="comparison-label">Before</div>
               <div class="comparison-image">
                 <img
-                  src="./public/images/asr/logo-before.webp"
+                  src="./public/images/asr/adv_logo.gif"
                   alt="Original Advanced Sports Rehab Logo"
                 />
               </div>
@@ -120,85 +152,22 @@
           </div>
         </div>
 
-        <!-- Desktop Homepage Transformation -->
-        <div class="comparison-container">
-          <h3>Desktop Experience</h3>
-          <div class="comparison-row">
-            <div class="comparison-item">
-              <div class="comparison-label">Before</div>
-              <div class="comparison-image">
-                <img
-                  src="./public/images/asr/desktop-before.webp"
-                  alt="Original Website Desktop View"
-                />
-              </div>
-            </div>
-            <div class="comparison-item">
-              <div class="comparison-label">After</div>
-              <div class="comparison-image">
-                <img
-                  src="./public/images/asr/desktop-after.webp"
-                  alt="New Website Desktop View"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="comparison-description">
-            <p>
-              The redesigned desktop experience features a clean, professional
-              aesthetic with intuitive navigation and clear service descriptions
-              that help patients quickly find the information they need.
-            </p>
-          </div>
-        </div>
 
-        <!-- Mobile Experience Transformation -->
-        <div class="comparison-container">
-          <h3>Mobile Experience</h3>
-          <div class="comparison-row">
-            <div class="comparison-item">
-              <div class="comparison-label">Before</div>
-              <div class="comparison-image">
-                <img
-                  src="./public/images/asr/mobile-before.webp"
-                  alt="Original Website Mobile View"
-                />
-              </div>
-            </div>
-            <div class="comparison-item">
-              <div class="comparison-label">After</div>
-              <div class="comparison-image">
-                <img
-                  src="./public/images/asr/mobile-after.webp"
-                  alt="New Website Mobile View"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="comparison-description">
-            <p>
-              We created a fully responsive mobile experience where none existed
-              before, ensuring patients can easily access information and book
-              appointments from any device.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="video-showcase">
-        <h2>See the Transformation</h2>
-        <p>
-          Watch a brief walkthrough of the before and after website to see the
-          dramatic improvements in design, functionality, and user experience.
-        </p>
-        <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/your-video-id"
-            title="Advanced Sports Rehab Website Transformation"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+      <section class="site-link-section">
+        <div class="site-link-container">
+          <h3>See the Live Transformation</h3>
+          <p>
+            Visit the redesigned website to experience the full transformation:
+          </p>
+          <a
+            href="https://advancedsportsrehab.com"
+            class="site-link-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Advanced Sports Rehab Website
+            <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </section>
     </div>
@@ -224,7 +193,7 @@
             <div class="step-number">1</div>
             <h3>Discovery & Strategy</h3>
             <p>
-              We interviewed Dr. Mesnick about his practice philosophy, patient
+              We interviewed Dr. Neal Mesnick about his practice philosophy, patient
               needs, and business goals to develop a strategic approach to the
               website redesign.
             </p>
@@ -308,7 +277,7 @@
           <div class="client-info">
             <div class="client-avatar">DL</div>
             <div class="client-name">
-              <h4>Dr. Mesnick</h4>
+              <h4>Dr. Neal Mesnick</h4>
               <p>Founder, Advanced Sports Rehab</p>
             </div>
           </div>
@@ -444,6 +413,100 @@
           font-size: 0.75rem;
         }
       }
+
+      .comparison-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .comparison-item {
+        position: relative;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        width: 80%; /* Reduce width to 80% of container */
+        margin: 0 auto; /* Center the item in its container */
+      }
+
+      .comparison-image {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        align-items: center; /* Center image vertically */
+        background-color: #f8f8f8; /* Light background to see image bounds */
+        padding: 1rem; /* Add some padding around images */
+      }
+
+      .comparison-image img {
+        width: 100%; /* Image will be 100% of its reduced container */
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+        max-width: 100%; /* Ensure image doesn't exceed container */
+      }
+
+      /* For the logo specifically, we can make them even smaller */
+      .comparison-container:first-of-type .comparison-item {
+        width: 40%; /* Make logo comparison items even smaller */
+      }
+
+      /* Adjust for mobile */
+      @media (max-width: 768px) {
+        .comparison-row {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .comparison-item {
+          width: 90%; /* Slightly larger on mobile for better visibility */
+        }
+      }
+
+      .site-link-section {
+    margin: 4rem 0;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(121, 197, 192, 0.05);
+    border-radius: 0.5rem;
+  }
+  
+  .site-link-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .site-link-container h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .site-link-container p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .site-link-button {
+    display: inline-block;
+    background-color: var(--teal);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .site-link-button:hover {
+    background-color: #144b4b;
+    transform: translateY(-2px);
+  }
+  
+  .site-link-button i {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  
     </style>
   </body>
 </html>

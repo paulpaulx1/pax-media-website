@@ -23,7 +23,7 @@ class SiteHeader extends HTMLElement {
         <li>
           <a href="index.html" class="nav-link">Services</a>
         </li>
-        <li><a href="index.html" class="nav-link">Contact</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </div>
 
@@ -31,7 +31,7 @@ class SiteHeader extends HTMLElement {
       <a href="index.html" class="nav-link">Home</a>
       <a href="index.html" class="nav-link">About</a>
       <a href="index.html" class="nav-link">Services</a>
-      <a href="index.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </div>
 </header>

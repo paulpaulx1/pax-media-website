@@ -19,10 +19,10 @@ class SiteHeader extends HTMLElement {
           <a href="index.html" class="nav-link">Home</a>
         </li>
         <li>
-          <a href="index.html" class="nav-link">About</a>
+          <a href="index.html#about" class="nav-link">About</a>
         </li>
         <li>
-          <a href="index.html" class="nav-link">Services</a>
+          <a href="index.html#work" class="nav-link">Work</a>
         </li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -31,8 +31,8 @@ class SiteHeader extends HTMLElement {
     <nav class="desktop-navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html">About</a></li>
-        <li><a href="index.html">Services</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#work">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>

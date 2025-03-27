@@ -26,6 +26,10 @@
   box-sizing: border-box;
 }
 
+#about, #work, #team {
+    scroll-margin-top: 90px; 
+  }
+
 body {
   font-family: var(--font-sans);
   color: var(--charcoal);
@@ -34,10 +38,12 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  padding-top: 90px; 
 }
 html {
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /*<------- Site Header CSS ------->*/

@@ -17,6 +17,7 @@
     />
     <script src="./js/components/site-header.js"></script>
     <script src="./js/components/site-footer.js"></script>
+    <script src="./js/alchemyrg-slideshow.js"></script>
   </head>
   <body>
     <site-header></site-header>
@@ -83,14 +84,18 @@
       <!-- Art Gallery Slideshow -->
       <section class="art-slideshow-section">
         <div class="gallery-header">
-          <h2>Dynamic Art Showcase</h2>
+          <h2>Showcase</h2>
           <p>An engaging visual experience that highlights the artist's work</p>
         </div>
 
         <div class="art-slideshow-container">
-          <!-- The two image elements that will alternate -->
-          <div class="slideshow-image active" id="slideImage1"></div>
-          <div class="slideshow-image" id="slideImage2"></div>
+          <!-- The two image containers that will alternate -->
+          <div class="slideshow-image" id="slideImage1">
+            <!-- img element will be added by JavaScript -->
+          </div>
+          <div class="slideshow-image" id="slideImage2">
+            <!-- img element will be added by JavaScript -->
+          </div>
         </div>
 
         <div class="slideshow-caption">
@@ -317,52 +322,17 @@
 
     <site-footer></site-footer>
 
-    <script>
-      // Artwork slideshow functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        // Array of artwork images for the slideshow
-        const artworks = [
-          "./public/images/alchemy/artwork1.webp",
-          "./public/images/alchemy/artwork2.webp",
-          "./public/images/alchemy/artwork3.webp",
-          "./public/images/alchemy/artwork4.webp",
-          "./public/images/alchemy/artwork5.webp",
-          "./public/images/alchemy/artwork6.webp",
-        ];
-
-        const slideImage1 = document.getElementById("slideImage1");
-        const slideImage2 = document.getElementById("slideImage2");
-
-        let activeImage = slideImage1;
-        let inactiveImage = slideImage2;
-        let currentIndex = 0;
-
-        // Set initial background
-        slideImage1.style.backgroundImage = `url(${artworks[0]})`;
-
-        // Function to switch images with fade effect
-        function switchImage() {
-          // Set the new image on the inactive element
-          currentIndex = (currentIndex + 1) % artworks.length;
-          inactiveImage.style.backgroundImage = `url(${artworks[currentIndex]})`;
-
-          // Remove active class from current active and add to inactive
-          activeImage.classList.remove("active");
-          inactiveImage.classList.add("active");
-
-          // Swap active and inactive references
-          const temp = activeImage;
-          activeImage = inactiveImage;
-          inactiveImage = temp;
-        }
-
-        // Switch images every 4 seconds
-        setInterval(switchImage, 4000);
-      });
-    </script>
-
     <style>
       /* Art Slideshow Styles */
+      .art-slideshow-section {
+        margin: 5rem 0;
+      }
+
+      .art-slideshow-section {
+        margin: 5rem 0;
+      }
+
+      /* Replace all the slideshow styles with this simplified version */
       .art-slideshow-section {
         margin: 5rem 0;
       }
@@ -370,11 +340,15 @@
       .art-slideshow-container {
         position: relative;
         width: 100%;
-        height: 500px;
+        /* height: 450px;  */
         margin: 2rem 0;
         overflow: hidden;
         border-radius: 0.5rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background-color: #f8f7f2;  */
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .slideshow-image {
@@ -383,18 +357,65 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         opacity: 0;
+        transition: opacity 1.5s ease;
+      }
+
+      .slideshow-image img {
+        max-height: 400px; /* Set max height as requested */
+        width: auto; /* Keep natural aspect ratio */
+        object-fit: contain;
         filter: blur(10px);
-        transition: opacity 1.5s ease, filter 1.5s ease;
+        transition: filter 1.5s ease;
       }
 
       .slideshow-image.active {
         opacity: 1;
+      }
+
+      .slideshow-image.active img {
         filter: blur(0);
       }
 
+      .slideshow-caption {
+        text-align: center;
+        max-width: 800px;
+        margin: 1.5rem auto 0;
+        font-style: italic;
+        color: #666;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .art-slideshow-container {
+          /* height: 350px; */
+        }
+
+        .slideshow-image img {
+          max-height: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .art-slideshow-container {
+          /* height: 250px; */
+        }
+
+        .slideshow-image img {
+          max-height: 200px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .slideshow-image,
+        .slideshow-image img {
+          transition: none;
+        }
+      }
+      
       .slideshow-caption {
         text-align: center;
         max-width: 800px;
@@ -532,13 +553,13 @@
         }
 
         .art-slideshow-container {
-          height: 400px;
+          /* height: 400px; */
         }
       }
 
       @media (max-width: 768px) {
         .art-slideshow-container {
-          height: 300px;
+          /* height: 300px; */
         }
 
         .technical-grid {
@@ -549,6 +570,73 @@
       @media (prefers-reduced-motion: reduce) {
         .slideshow-image {
           transition: none;
+        }
+      }
+
+      /* Enhanced Art Slideshow Styles */
+      .art-slideshow-section {
+        margin: 5rem 0;
+      }
+
+      .art-slideshow-container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        margin: 2rem 0;
+        overflow: hidden;
+        border-radius: 0.5rem;
+      }
+
+      .slideshow-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        filter: blur(10px);
+        transition: opacity 1.5s ease, filter 1.5s ease;
+        transform: scale(1.05); /* Slight scale for more dynamic transition */
+      }
+
+      .slideshow-image.active {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+        transition: opacity 1.5s ease, filter 1.5s ease, transform 2s ease;
+      }
+
+      .slideshow-caption {
+        text-align: center;
+        max-width: 800px;
+        margin: 1.5rem auto 0;
+        font-style: italic;
+        color: #666;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .art-slideshow-container {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .art-slideshow-container {
+          height: 300px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .slideshow-image {
+          transition: opacity 0.5s linear;
+          transform: none;
+        }
+        .slideshow-image.active {
+          transition: opacity 0.5s linear;
+          transform: none;
         }
       }
     </style>

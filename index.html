@@ -102,7 +102,7 @@
     </section>
 
     <!-- About Us Section -->
-    <section class="about">
+    <section class="about" id="about">
       <div class="container">
         <div class="about-grid">
           <div class="about-content">
@@ -125,7 +125,7 @@
           </div>
           <div class="about-image">
             <img
-              src="./public/images/about-image.webp"
+              src="./public/images/pax-team.webp"
               alt="Pax Media team working on a project"
             />
           </div>
@@ -134,7 +134,7 @@
     </section>
 
     <!-- Featured Work Section -->
-    <section class="featured-work">
+    <section class="featured-work" id="work">
       <div class="container">
         <div class="section-header">
           <h2>Our Work</h2>
@@ -262,6 +262,56 @@
     </section>
 
     <site-footer></site-footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to handle scrolling with offset
+        function scrollToWithOffset(elementId) {
+          const element = document.getElementById(elementId);
+          if (!element) return;
+          
+          // Get the height of the fixed header
+          const headerHeight = 90; // Using your specified 90px header height
+          
+          // Calculate position accounting for header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          
+          // Scroll to the adjusted position
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Add click event listeners to all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            scrollToWithOffset(targetId);
+          });
+        });
+        
+        // Also handle links coming from other pages with hash
+        document.querySelectorAll('a[href*="index.html#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').split('#')[1];
+            scrollToWithOffset(targetId);
+          });
+        });
+        
+        // Check if there's a hash in the URL when page loads
+        if (window.location.hash) {
+          // Wait a moment for page to settle
+          setTimeout(function() {
+            const targetId = window.location.hash.substring(1);
+            scrollToWithOffset(targetId);
+          }, 300);
+        }
+      });
+    </script>
 
     <style>
       /* Hero Section Styles */

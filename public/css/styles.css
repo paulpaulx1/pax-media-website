@@ -1,67 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
 
-/* 1. Add this at the top of your CSS file to ensure proper viewport behavior */
-html {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* 2. Make sure all containers are responsive */
-.container,
-.hero-container,
-.process-container,
-.footer-container,
-.testimonial-container {
-  width: 100%;
-  max-width: 1200px;
-  /* This maximum width will prevent stretching on large screens */
-  padding-left: 5%;
-  padding-right: 5%;
-  box-sizing: border-box;
-}
-
-/* 3. Ensure images don't cause overflow */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 4. Fix any fixed-width elements */
-/* If you have any elements with fixed pixel widths, convert them to percentage or max-width */
-.gallery-item,
-.process-step,
-.result-card,
-.stat-card {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* 5. Make sure the grids use proper responsive values */
-.project-overview,
-.gallery-grid,
-.process-steps,
-.results-grid,
-.stats-grid {
-  width: 100%;
-  gap: clamp(1rem, 3%, 4rem);
-  /* Responsive gap that adjusts based on screen size */
-}
-
-/* 6. Add this to your media queries to ensure proper grid behavior */
-@media (max-width: 992px) {
-  .gallery-grid,
-  .process-steps,
-  .results-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
 :root {
   --ivory: #f8f7f2;
   --charcoal: #333333;
@@ -93,43 +31,16 @@ body {
   color: var(--charcoal);
   background-color: var(--ivory);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+html {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* header {
-    padding: 2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: var(--charcoal);
-    text-decoration: none;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 2rem;
-}
-
-nav ul li a {
-    color: var(--charcoal);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--teal);
-} */
-
+/*<------- Site Header CSS ------->*/
 .sticky-header {
   position: fixed;
   top: 0;
@@ -289,12 +200,12 @@ nav ul li a:hover {
   .container {
     padding: 2rem;
   }
-  
+
   /* Hide mobile menu on larger screens */
   #menuToggle.mobile-menu {
     display: none;
   }
-  
+
   /* Show desktop navigation on larger screens */
   .desktop-navigation {
     display: flex;
@@ -302,7 +213,7 @@ nav ul li a:hover {
     justify-content: flex-end;
     align-items: center;
   }
-  
+
   .nav-link {
     padding: 0.5rem 0;
     text-decoration: none;
@@ -312,7 +223,7 @@ nav ul li a:hover {
     position: relative;
     transition: color 0.3s;
   }
-   .logo .nav-link {
+  .logo .nav-link {
     padding: 0.5rem 0;
     text-decoration: none;
     color: var(--color-text);
@@ -321,7 +232,7 @@ nav ul li a:hover {
     position: relative;
     transition: color 0.3s;
   }
-  
+
   .nav-link:after {
     content: '';
     position: absolute;
@@ -334,6 +245,337 @@ nav ul li a:hover {
   }
 }
 
+/*<------- END Site Header CSS ------->*/
+
+/*<------ Footer Styles ------>*/
+footer {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  padding: 5rem 5% 2rem;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: var(--teal);
+  opacity: 0.05;
+  bottom: -120px;
+  left: -100px;
+}
+
+footer::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: var(--coral);
+  opacity: 0.05;
+  top: 20px;
+  right: -50px;
+  transform: rotate(45deg);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-about {
+  max-width: 350px;
+}
+
+.footer-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ivory);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-logo:hover {
+  color: var(--light-blue);
+}
+
+.footer-about p {
+  margin-bottom: 2rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2rem;
+  height: 0.125rem;
+  background-color: var(--light-blue);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--ivory);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.3s;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+  color: var(--light-blue);
+}
+
+.copyright {
+  margin-top: 4rem;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.875rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-about {
+    max-width: none;
+  }
+}
+/*<------ END Footer CSS -----> */
+
+/*<------ Process Section CSS ------>*/
+@media (max-width: 480px) {
+  .step-number {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-container .process-steps {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .process-step {
+    padding: 2.5rem 1.5rem 1.5rem;
+    margin-top: 1.5rem;
+    height: auto;
+    width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+  .process-step h3 {
+    font-size: 1.2rem;
+  }
+}
+
+.process-container {
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.process-steps {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.process-section {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  padding: 5rem 5%;
+  margin: 0 -5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.process-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.process-header h2::after {
+  content: '';
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: -0.75rem;
+  height: 0.25rem;
+  background-color: var(--yellow);
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+}
+
+.step-number {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.process-step h3 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+/*<------ END Process Section CSS ------>*/
+
+@media (max-width: 992px) {
+  .gallery-grid,
+  .results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack cards vertically on mobile */
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Fix result card layout */
+  .result-card {
+    padding: 1.5rem;
+    height: auto;
+    width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  /* Optimize typography for mobile */
+  .result-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+  .result-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  /* Ensure project overview stacks properly */
+  .project-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container,
+.hero-container,
+.footer-container,
+.testimonial-container {
+  width: 100%;
+  max-width: 1200px;
+  /* This maximum width will prevent stretching on large screens */
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+/* 3. Ensure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 4. Fix any fixed-width elements */
+/* If you have any elements with fixed pixel widths, convert them to percentage or max-width */
+.gallery-item,
+.result-card,
+.stat-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 5. Make sure the grids use proper responsive values */
+.project-overview,
+.gallery-grid,
+.results-grid,
+.stats-grid {
+  width: 100%;
+  gap: clamp(1rem, 3%, 4rem);
+  /* Responsive gap that adjusts based on screen size */
+}
 .hero {
   padding: 5rem 5%;
   background-color: var(--charcoal);
@@ -538,85 +780,6 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-.process-section {
-  background-color: var(--charcoal);
-  color: var(--ivory);
-  padding: 5rem 5%;
-  margin: 0 -5%;
-  position: relative;
-  overflow: hidden;
-}
-
-.process-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.process-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.process-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.process-header h2::after {
-  content: '';
-  position: absolute;
-  left: 25%;
-  right: 25%;
-  bottom: -0.75rem;
-  height: 0.25rem;
-  background-color: var(--yellow);
-}
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.process-step {
-  text-align: center;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 0.5rem;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.process-step:hover {
-  transform: translateY(-10px);
-}
-
-.step-number {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: var(--ivory);
-  color: var(--charcoal);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.process-step h3 {
-  margin: 1.5rem 0 1rem;
-  font-size: 1.25rem;
-}
-
 .results-section {
   padding: 5rem 0;
 }
@@ -783,137 +946,4 @@ nav ul li a:hover {
   padding: 1rem 2rem;
   border-radius: 0.25rem;
   font-weight: 600;
-}
-
-/* Footer Styles */
-footer {
-  background-color: var(--charcoal);
-  color: var(--ivory);
-  padding: 5rem 5% 2rem;
-  margin-top: 5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: var(--teal);
-  opacity: 0.05;
-  bottom: -120px;
-  left: -100px;
-}
-
-footer::after {
-  content: '';
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background-color: var(--coral);
-  opacity: 0.05;
-  top: 20px;
-  right: -50px;
-  transform: rotate(45deg);
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 4rem;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-about {
-  max-width: 350px;
-}
-
-.footer-logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--ivory);
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-logo:hover {
-  color: var(--light-blue);
-}
-
-.footer-about p {
-  margin-bottom: 2rem;
-  opacity: 0.7;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.footer-heading {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.footer-heading::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.5rem;
-  width: 2rem;
-  height: 0.125rem;
-  background-color: var(--light-blue);
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 0.75rem;
-}
-
-.footer-links a {
-  color: var(--ivory);
-  opacity: 0.7;
-  text-decoration: none;
-  transition: opacity 0.3s, transform 0.3s;
-  display: inline-block;
-  font-size: 0.95rem;
-}
-
-.footer-links a:hover {
-  opacity: 1;
-  transform: translateX(5px);
-  color: var(--light-blue);
-}
-
-.copyright {
-  margin-top: 4rem;
-  text-align: center;
-  opacity: 0.6;
-  font-size: 0.875rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-about {
-    max-width: none;
-  }
 }

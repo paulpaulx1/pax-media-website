@@ -1,10 +1,11 @@
+// site-header.js
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-<header class="sticky-header">
+<header class="site-header">
   <div class="header-content">
     <div class="logo">
-      <a class="logo nav-link" style="text-decoration: none;" href="index.html">Pax Media</a>
+      <a href="index.html">Pax Media</a>
     </div>
 
     <div id="menuToggle" class="mobile-menu">
@@ -28,14 +29,16 @@ class SiteHeader extends HTMLElement {
     </div>
 
     <nav class="desktop-navigation">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="index.html" class="nav-link">About</a>
-      <a href="index.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">About</a></li>
+        <li><a href="index.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </div>
 </header>
-      `;
+    `;
     const menuCheckbox = this.querySelector('#menuToggle input');
     menuCheckbox.addEventListener('change', () => {
       if (menuCheckbox.checked) {

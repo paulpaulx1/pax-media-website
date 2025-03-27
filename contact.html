@@ -1,99 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Pax Media</title>
-    <link rel="stylesheet" href="public/css/contact.css" />
-    <link rel="stylesheet" href="public/css/styles.css" />
-    <script src="./js/components/site-header.js"></script>
-    <script src="./js/components/site-footer.js"></script>
-  </head>
-  <body>
-    <site-header></site-header>
-    <div class="container">
-      <h1>Contact Pax Media</h1>
-      <p>Have a project in mind? Get in touch with our team.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Pax Media</title>
+  <link rel="stylesheet" href="public/css/styles.css" />
+  <script src="./js/components/site-header.js"></script>
+  <script src="./js/components/site-footer.js"></script>
+  <style>
+    /* Contact Page Specific Styles */
+    body {
+      background-color: var(--charcoal);
+      padding-top: 90px; /* Equal to header height */
+    }
+    
+    .contact-container {
+      max-width: 650px;
+      margin: 60px auto 80px;
+      padding: 3rem;
+      background: rgba(20, 20, 25, 0.4);
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Memphis style accents */
+    .memphis-shape {
+      position: absolute;
+      z-index: -1;
+      opacity: 0.07;
+    }
+    
+    .memphis-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: var(--coral);
+      top: -80px;
+      right: -80px;
+    }
+    
+    .memphis-triangle {
+      width: 150px;
+      height: 150px;
+      background-color: var(--light-blue);
+      bottom: -50px;
+      left: -50px;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    
+    h1 {
+      color: var(--ivory);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+    }
+    
+    h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 3rem;
+      height: 0.25rem;
+      background-color: var(--teal);
+    }
+    
+    .contact-intro {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--ivory);
+      opacity: 0.9;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.875rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      color: var(--ivory);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(121, 197, 192, 0.2);
+    }
+    
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .submit-btn {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      border: none;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background: #1a6e6e;
+      transform: translateY(-2px);
+    }
+    
+    #result {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      font-weight: 500;
+    }
+    
+    #result:not(:empty) {
+      background-color: rgba(121, 197, 192, 0.1);
+      color: var(--light-blue);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .contact-container {
+        margin: 40px auto 60px;
+        padding: 2rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-container {
+        margin: 30px 20px 40px;
+        padding: 1.5rem;
+      }
+      
+      .submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+  
+  <div class="contact-container">
+    <div class="memphis-shape memphis-circle"></div>
+    <div class="memphis-shape memphis-triangle"></div>
+    
+    <h1>Contact Pax Media</h1>
+    <p class="contact-intro">Have a project in mind? Get in touch with our team.</p>
 
-      <form
-        id="contactForm"
-        action="https://api.web3forms.com/submit"
-        method="POST"
-      >
-        <input
-          type="hidden"
-          name="access_key"
-          value="da50ebeb-4f05-4ee2-8c37-441bd39d44a0"
-        />
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="da50ebeb-4f05-4ee2-8c37-441bd39d44a0" />
 
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
-        </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+      </div>
 
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <input
-          type="checkbox"
-          name="botcheck"
-          class="hidden"
-          style="display: none"
-        />
-        <button type="submit" class="submit-btn">Send Message</button>
-        <div id="result"></div>
-      </form>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+      </div>
+      
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
+      <button type="submit" class="submit-btn">Send Message</button>
+      <div id="result"></div>
+    </form>
+  </div>
+  
+  <site-footer></site-footer>
 
-      <div id="formStatus" class="form-status"></div>
-    </div>
-    <site-footer></site-footer>
+  <script>
+    const form = document.getElementById('contactForm');
+    const result = document.getElementById('result');
 
-    <script src="js/contact-script.js"></script>
-    <script>
-      const form = document.getElementById('contactForm');
-      const result = document.getElementById('result');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      result.innerHTML = 'Please wait...';
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-        result.innerHTML = 'Please wait...';
-
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: json,
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+            result.innerHTML = json.message;
+            result.style.backgroundColor = 'rgba(121, 197, 192, 0.1)';
+            result.style.color = 'var(--light-blue)';
+          } else {
+            console.log(response);
+            result.innerHTML = json.message;
+            result.style.backgroundColor = 'rgba(224, 93, 68, 0.1)';
+            result.style.color = 'var(--coral)';
+          }
         })
-          .then(async (response) => {
-            let json = await response.json();
-            if (response.status == 200) {
-              result.innerHTML = json.message;
-            } else {
-              console.log(response);
-              result.innerHTML = json.message;
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-            result.innerHTML = 'Something went wrong!';
-          })
-          .then(function () {
-            form.reset();
-            setTimeout(() => {
-              result.style.display = 'none';
-            }, 3000);
-          });
-      });
-    </script>
-  </body>
+        .catch((error) => {
+          console.log(error);
+          result.innerHTML = 'Something went wrong!';
+          result.style.backgroundColor = 'rgba(224, 93, 68, 0.1)';
+          result.style.color = 'var(--coral)';
+        })
+        .then(function () {
+          form.reset();
+          setTimeout(() => {
+            result.style.display = 'none';
+          }, 5000);
+        });
+    });
+  </script>
+</body>
 </html>

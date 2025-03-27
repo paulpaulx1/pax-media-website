@@ -1,89 +1,179 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Contact Page Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
+    background-color: var(--ivory);
+    color: var(--charcoal);
+  }
+  
+  .container {
+    max-width: 650px;
+    margin: 140px auto 80px; /* Increased top margin to clear fixed header */
+    padding: 3rem;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-h1 {
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-p {
-    margin-bottom: 30px;
-    color: #7f8c8d;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Memphis style accents */
+  .container::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    opacity: 0.05;
+    top: -60px;
+    right: -60px;
+    z-index: 0;
+  }
+  
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: var(--light-blue);
+    opacity: 0.05;
+    bottom: -40px;
+    left: -40px;
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    position: relative;
+  }
+  
+  h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 3rem;
+    height: 0.25rem;
+    background-color: var(--teal);
+  }
+  
+  p {
+    margin-bottom: 2.5rem;
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input, textarea {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  
+  input, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-input:focus, textarea:focus {
+    padding: 0.875rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  input:focus, textarea:focus {
     outline: none;
-    border-color: #3498db;
-}
-
-.submit-btn {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(121, 197, 192, 0.1);
+  }
+  
+  .submit-btn {
     display: inline-block;
-    background: #3498db;
+    background: var(--teal);
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.submit-btn:hover {
-    background: #2980b9;
-}
-
-.form-status {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .submit-btn:hover {
+    background: #144b4b;
+    transform: translateY(-2px);
+  }
+  
+  #result {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  #result:not(:empty) {
+    background-color: rgba(121, 197, 192, 0.1);
+    color: var(--teal);
+  }
+  
+  .form-status {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
     display: none;
-}
-
-.success {
+  }
+  
+  .success {
     display: block;
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.error {
+    background-color: rgba(121, 197, 192, 0.1);
+    color: var(--teal);
+  }
+  
+  .error {
     display: block;
-    background-color: #f8d7da;
-    color: #721c24;
-}
+    background-color: rgba(224, 93, 68, 0.1);
+    color: var(--coral);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      margin: 120px auto 60px;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      margin: 100px 20px 40px;
+      padding: 1.5rem;
+    }
+    
+    .submit-btn {
+      width: 100%;
+    }
+  }

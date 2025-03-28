@@ -1,98 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Pax Media</title>
-  <link rel="stylesheet" href="public/css/styles.css" />
-  <link rel="stylesheet" href="public/css/contact.css">
-  <script src="./js/components/site-header.js"></script>
-  <script src="./js/components/site-footer.js"></script>
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Pax Media</title>
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/contact.css" />
+    <script src="./js/components/site-header.js"></script>
+    <script src="./js/components/site-footer.js"></script>
+    <script src="./js/contact-script.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <site-header></site-header>
 
-  </style>
-</head>
-<body>
-  <site-header></site-header>
-  
-  <div class="contact-container">
-    <div class="memphis-shape memphis-circle"></div>
-    <div class="memphis-shape memphis-triangle"></div>
-    
-    <h1>Contact Pax Media</h1>
-    <p class="contact-intro">Have a project in mind? Get in touch with our team.</p>
+    <div class="contact-container">
+      <div class="memphis-shape memphis-circle"></div>
+      <div class="memphis-shape memphis-triangle"></div>
 
-    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="da50ebeb-4f05-4ee2-8c37-441bd39d44a0" />
+      <h1>Contact Pax Media</h1>
+      <p class="contact-intro">
+        Have a project in mind? Get in touch with our team.
+      </p>
 
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required />
-      </div>
+      <form
+        id="contactForm"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="da50ebeb-4f05-4ee2-8c37-441bd39d44a0"
+        />
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
-      </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-      </div>
-      
-      <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
-      <button type="submit" class="submit-btn">Send Message</button>
-      <div id="result"></div>
-    </form>
-  </div>
-  
-  <site-footer></site-footer>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your.email@example.com"
+            required
+          />
+        </div>
 
-  <script>
-    const form = document.getElementById('contactForm');
-    const result = document.getElementById('result');
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell us about your project..."
+            required
+          ></textarea>
+        </div>
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-      result.innerHTML = 'Please wait...';
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          style="display: none"
+        />
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div id="result"></div>
+      </form>
+    </div>
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: json,
-      })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-            result.innerHTML = json.message;
-            result.style.backgroundColor = 'rgba(121, 197, 192, 0.1)';
-            result.style.color = 'var(--light-blue)';
-          } else {
-            console.log(response);
-            result.innerHTML = json.message;
-            result.style.backgroundColor = 'rgba(224, 93, 68, 0.1)';
-            result.style.color = 'var(--coral)';
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          result.innerHTML = 'Something went wrong!';
-          result.style.backgroundColor = 'rgba(224, 93, 68, 0.1)';
-          result.style.color = 'var(--coral)';
-        })
-        .then(function () {
-          form.reset();
-          setTimeout(() => {
-            result.style.display = 'none';
-          }, 5000);
-        });
-    });
-  </script>
-</body>
+    <site-footer></site-footer>
+  </body>
 </html>

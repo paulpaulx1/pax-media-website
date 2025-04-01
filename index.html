@@ -8,6 +8,7 @@
       name="description"
       content="We help small businesses look professional online without the big agency price tag. Digital experiences that elevate brands and drive results."
     />
+    <link rel="shortcut icon" href="./public/images/homepage/favilogo.png" type="image/png">
     <link rel="stylesheet" href="./public/css/styles.css" />
     <link
       rel="stylesheet"
@@ -39,7 +40,7 @@
           complexity.
         </p>
         <div class="hero-cta">
-          <a href="./work.html" class="primary-button">See Our Work</a>
+          <a href="index.html#work" class="primary-button">See Our Work</a>
           <a href="./contact.html" class="secondary-button">Get in Touch</a>
         </div>
       </div>
@@ -200,21 +201,28 @@
         <div class="team-grid">
           <div class="team-member">
             <div class="team-photo">
-              <img src="/public/images/homepage/paul-selfie.jpg" alt="Paul Neenan" />
+              <img
+                src="/public/images/homepage/paul-selfie.jpg"
+                alt="Paul Neenan"
+              />
             </div>
             <div class="team-info">
               <h3>Paul Neenan</h3>
               <p class="team-title">Digital Storyteller & Founder</p>
               <p class="team-bio">
                 Paul combines technical expertise with creative thinking to
-                craft digital experiences that connect with users. 
+                craft digital experiences that connect with users.
               </p>
             </div>
           </div>
 
           <div class="team-member">
             <div class="team-photo">
-              <img src="./public/images/homepage/max.JPG" alt="Max Smith" style="height: auto;"/>
+              <img
+                src="./public/images/homepage/max.JPG"
+                alt="Max Smith"
+                style="height: auto"
+              />
             </div>
             <div class="team-info">
               <h3>Max Rivera</h3>
@@ -264,48 +272,51 @@
     <site-footer></site-footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         // Function to handle scrolling with offset
         function scrollToWithOffset(elementId) {
           const element = document.getElementById(elementId);
           if (!element) return;
-          
+
           // Get the height of the fixed header
           const headerHeight = 90; // Using your specified 90px header height
-          
+
           // Calculate position accounting for header height
           const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-          
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerHeight;
+
           // Scroll to the adjusted position
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }
-        
+
         // Add click event listeners to all anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             scrollToWithOffset(targetId);
           });
         });
-        
+
         // Also handle links coming from other pages with hash
-        document.querySelectorAll('a[href*="index.html#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').split('#')[1];
-            scrollToWithOffset(targetId);
+        document
+          .querySelectorAll('a[href*="index.html#"]')
+          .forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute('href').split('#')[1];
+              scrollToWithOffset(targetId);
+            });
           });
-        });
-        
+
         // Check if there's a hash in the URL when page loads
         if (window.location.hash) {
           // Wait a moment for page to settle
-          setTimeout(function() {
+          setTimeout(function () {
             const targetId = window.location.hash.substring(1);
             scrollToWithOffset(targetId);
           }, 300);
@@ -473,7 +484,7 @@
       }
 
       .section-header h2::after {
-        content: "";
+        content: '';
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -495,8 +506,14 @@
 
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
         gap: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+        }
       }
 
       .service-card {
@@ -529,271 +546,271 @@
         color: var(--teal);
       }
       /* Service Card Styles (continuing) */
-    .service-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .service-card p {
-      color: #666;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    
-    /* About Section */
-    .about {
-      background-color: #f8f8f8;
-    }
-    
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    
-    .about-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    
-    .about-content h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.75rem;
-      width: 3rem;
-      height: 0.25rem;
-      background-color: var(--teal);
-    }
-    
-    .about-content p {
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    
-    .about-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
-    
-    /* Featured Work Section */
-    .featured-work {
-      background-color: var(--ivory);
-    }
-    
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-    }
-    
-    .work-card {
-      background-color: white;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .work-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .work-image {
-      height: 220px;
-      overflow: hidden;
-    }
-    
-    .work-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .work-card:hover .work-image img {
-      transform: scale(1.05);
-    }
-    
-    .work-content {
-      padding: 1.5rem;
-    }
-    
-    .work-content h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem;
-    }
-    
-    .work-content p {
-      color: #666;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    
-    .work-link {
-      color: var(--teal);
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      position: relative;
-    }
-    
-    .work-link::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--teal);
-      transition: width 0.3s ease;
-    }
-    
-    .work-link:hover::after {
-      width: 100%;
-    }
-    
-    /* Team Section */
-    .team {
-      background-color: #f8f8f8;
-    }
-    
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-    }
-    
-    .team-member {
-      text-align: center;
-    }
-    
-    .team-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    
-    .team-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .team-info h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-    }
-    
-    .team-title {
-      color: var(--teal);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    
-    .team-bio {
-      color: #666;
-      max-width: 400px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    /* Testimonial Section (already included in your code) */
-    .testimonial-section {
-      background-color: rgba(121, 197, 192, 0.1);
-      padding: 5rem 5%;
-      margin: 5rem 0;
-      position: relative;
-    }
-    
-    /* Contact CTA Section */
-    .contact-cta {
-      text-align: center;
-      background-color: var(--charcoal);
-      color: var(--ivory);
-      padding: 4rem 5%;
-    }
-    
-    .contact-cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .contact-cta p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.8;
-    }
-    
-    .contact-cta .primary-button {
-      display: inline-block;
-      margin-top: 1rem;
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 992px) {
+      .service-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .service-card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* About Section */
+      .about {
+        background-color: #f8f8f8;
+      }
+
       .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .about-image {
-        order: -1;
-      }
-      
-      .team-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 4rem;
+        align-items: center;
       }
-    }
-    
-    @media (max-width: 768px) {
-      .hero {
-        padding: 6rem 5% 5rem;
-      }
-      
-      .hero h1 {
+
+      .about-content h2 {
         font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
       }
-      
-      .hero p {
-        font-size: 1.1rem;
+
+      .about-content h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.75rem;
+        width: 3rem;
+        height: 0.25rem;
+        background-color: var(--teal);
       }
-      
-      .section-header h2,
-      .about-content h2,
-      .contact-cta h2 {
-        font-size: 2rem;
+
+      .about-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
       }
-      
-      .container {
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Featured Work Section */
+      .featured-work {
+        background-color: var(--ivory);
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .work-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .work-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .work-image {
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .work-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .work-card:hover .work-image img {
+        transform: scale(1.05);
+      }
+
+      .work-content {
+        padding: 1.5rem;
+      }
+
+      .work-content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .work-content p {
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .work-link {
+        color: var(--teal);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+      }
+
+      .work-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--teal);
+        transition: width 0.3s ease;
+      }
+
+      .work-link:hover::after {
+        width: 100%;
+      }
+
+      /* Team Section */
+      .team {
+        background-color: #f8f8f8;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+
+      .team-member {
+        text-align: center;
+      }
+
+      .team-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-info h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .team-title {
+        color: var(--teal);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .team-bio {
+        color: #666;
+        max-width: 400px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Testimonial Section (already included in your code) */
+      .testimonial-section {
+        background-color: rgba(121, 197, 192, 0.1);
+        padding: 5rem 5%;
+        margin: 5rem 0;
+        position: relative;
+      }
+
+      /* Contact CTA Section */
+      .contact-cta {
+        text-align: center;
+        background-color: var(--charcoal);
+        color: var(--ivory);
         padding: 4rem 5%;
       }
-      
-      .work-grid,
-      .team-grid {
-        grid-template-columns: 1fr;
+
+      .contact-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
       }
-    }
-    
-    @media (prefers-reduced-motion: reduce) {
-      .memphis-circle,
-      .memphis-triangle,
-      .memphis-square {
-        animation: none;
+
+      .contact-cta p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 2.5rem;
+        opacity: 0.8;
       }
-    }
+
+      .contact-cta .primary-button {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .about-image {
+          order: -1;
+        }
+
+        .team-grid {
+          gap: 4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 6rem 5% 5rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .section-header h2,
+        .about-content h2,
+        .contact-cta h2 {
+          font-size: 2rem;
+        }
+
+        .container {
+          padding: 4rem 5%;
+        }
+
+        .work-grid,
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .memphis-circle,
+        .memphis-triangle,
+        .memphis-square {
+          animation: none;
+        }
+      }
     </style>
   </body>
 </html>

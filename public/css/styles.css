@@ -879,14 +879,14 @@ img {
 
 .gallery-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
 
 .gallery-header h2 {
   font-size: 2rem;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .gallery-header h2::after {

@@ -23,7 +23,6 @@ class SiteFooter extends HTMLElement {
                 <h4 class="footer-heading">Connect</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:hello@paxmedia.com">hello@pax.media</a></li>
-                    <li><a href="tel:+15555555555">(555) 555-5555</a></li>
                 </ul>
                 </div>
             </div>

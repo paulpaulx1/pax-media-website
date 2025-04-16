@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-5GRWNZJ2');
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pax Media | Digital Solutions for Small Businesses</title>
@@ -8,7 +22,11 @@
       name="description"
       content="We help small businesses look professional online without the big agency price tag. Digital experiences that elevate brands and drive results."
     />
-    <link rel="shortcut icon" href="./public/images/homepage/favilogo.png" type="image/png">
+    <link
+      rel="shortcut icon"
+      href="./public/images/homepage/favilogo.png"
+      type="image/png"
+    />
     <link rel="stylesheet" href="./public/css/styles.css" />
     <link
       rel="stylesheet"
@@ -24,6 +42,16 @@
     <script src="./js/components/site-footer.js"></script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5GRWNZJ2"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <site-header></site-header>
 
     <!-- Hero Section with Animated Memphis Shapes -->
@@ -206,7 +234,7 @@
       </div>
     </section>
 
-     <!-- About Us Section -->
+    <!-- About Us Section -->
     <section class="about" id="about">
       <div class="container">
         <div class="about-grid">
@@ -757,6 +785,15 @@
       .contact-cta .primary-button {
         display: inline-block;
         margin-top: 1rem;
+      }
+      .primary-button {
+        background-color: var(--teal);
+        color: white;
+        padding: 0.875rem 1.75rem;
+        border-radius: 0.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
       }
 
       /* Responsive Adjustments */
